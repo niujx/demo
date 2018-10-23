@@ -60,4 +60,12 @@ public class EvalVisitor extends ExprBaseVisitor<Integer> {
     public Integer visitParents(ExprParser.ParentsContext ctx) {
         return visit(ctx.expr());
     }
+
+    @Override
+    public Integer visitClear(ExprParser.ClearContext ctx) {
+        String text = ctx.ID().getText();
+        memory.put(text,0);
+        return 0;
+
+    }
 }

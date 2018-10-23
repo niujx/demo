@@ -5,15 +5,16 @@ prog : stat+ ;
 
 stat : expr NEWLINE            # printExpr
      | ID '=' expr NEWLINE     # assign
+     | 'delete' ID NEWLINE     # clear
      | NEWLINE                 # blank
      ;
 
 
 expr : expr op=('*'|'/') expr     # MulDiv
      | expr op=('+'|'-') expr     # Addsub
-     | INT                     # int
-     | ID                      # id
-     | '(' expr ')'            # parents
+     | INT                        # int
+     | ID                         # id
+     | '(' expr ')'               # parents
      ;
 
 
