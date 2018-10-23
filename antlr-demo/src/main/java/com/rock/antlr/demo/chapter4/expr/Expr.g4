@@ -1,21 +1,19 @@
 grammar Expr ;
+import CommonLexerRules;
 
 prog : stat+ ;
 
-stat : expr NEWLINE
-     | ID '=' expr NEWLINE
-     | NEWLINE
+stat : expr NEWLINE            # printExpr
+     | ID '=' expr NEWLINE     # assign
+     | NEWLINE                 # blank
      ;
 
 
-expr : expr ('*'|'/') expr
-     | expr ('+'|'-') expr
-     | INT
-     | ID
-     | '(' expr ')'
+expr : expr op=('*'|'/') expr     # MulDiv
+     | expr op=('+'|'-') expr     # Addsub
+     | INT                     # int
+     | ID                      # id
+     | '(' expr ')'            # parents
      ;
 
-ID   : [a-zA-Z]+ ;
-INT  : [0-9]+ ;
-NEWLINE : '\r'? '\n' ;
-WS      : [ \t]+ -> skip ;
+
