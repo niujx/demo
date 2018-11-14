@@ -11,6 +11,7 @@
 
     <modules>
         <module>antlr-demo</module>
+        <module>flink-demo</module>
     </modules>
 
     <build>
