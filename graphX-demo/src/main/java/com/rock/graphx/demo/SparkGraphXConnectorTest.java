@@ -17,7 +17,7 @@ import java.util.Map;
  * Date: 2018-11-17
  * Time: 15:04
  */
-public class SparkGraphXTest {
+public class SparkGraphXConnectorTest {
 
     private static SparkConf conf;
     private static JavaSparkContext sc;
