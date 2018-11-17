@@ -12,6 +12,7 @@
     <modules>
         <module>antlr-demo</module>
         <module>flink-demo</module>
+        <module>graphX-demo</module>
     </modules>
 
     <build>

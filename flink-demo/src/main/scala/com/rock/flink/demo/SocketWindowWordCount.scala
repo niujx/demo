@@ -1,6 +1,7 @@
 package com.rock.flink.demo
 
 import org.apache.flink.api.java.utils.ParameterTool
+import org.apache.flink.runtime.state.filesystem.FsStateBackend
 import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
 import org.apache.flink.streaming.api.windowing.time.Time
 import org.apache.flink.streaming.api.scala._
@@ -25,7 +26,8 @@ object SocketWindowWordCount {
     }
 
 
-    val environment = StreamExecutionEnvironment.getExecutionEnvironment
+    val environment:StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
+//    environment.setStateBackend(new FsStateBackend(""))
 
     val text = environment.socketTextStream("localhost", port, '\n')
 
